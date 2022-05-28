@@ -3,6 +3,7 @@ const initialState = {
     job:null
 }
 
+// global state untuk jobs dan job
 const reducer = (state=initialState,action) =>{
     if(action.type === 'getAllJob'){
         return {...state,jobs:action.payload}

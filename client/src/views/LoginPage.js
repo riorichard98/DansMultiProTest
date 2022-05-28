@@ -21,15 +21,20 @@ export default function LoginPage() {
         e.preventDefault()
         dispatch(login(username, password))
             .then(resp => {
+                // jika berhasil login akan diset tokennya
                 localStorage.setItem('token',resp.data.token)
                 swal('you are logged in')
                 navigate('/jobs')
                 loginReset()
             })
             .catch(err => {
-                swal(err.response.data.message)
-                loginReset()
-                
+                // jika gagal login akan ada notifikasi menggunakan swal
+                if(err.message === 'Network Error'){
+                    swal('please run the server and read readme file')
+                }else{
+                    swal(err.response.data.message)
+                }
+                loginReset() 
             })
 
     }
