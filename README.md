@@ -14,3 +14,4 @@
 
 1. design patern yang digunakan mvc
 2. database yang digunakan sql dengan orm sequelize
+3. diserver terdapat folder routes untuk mengetahui semua rest API yang tersedia

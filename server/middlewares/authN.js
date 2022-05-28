@@ -27,3 +27,5 @@ const authN = async (req,res,next)=>{
         next(error)
     }
 }
+
+module.exports = {authN}
