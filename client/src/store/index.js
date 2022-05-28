@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
-import reducer from './jobReducer.js'
+import reducer from './allReducer.js'
 
 const store = createStore(reducer,applyMiddleware(thunk))
 

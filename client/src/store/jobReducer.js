@@ -1,6 +1,6 @@
 const initialState = {
     jobs:[],
-    job:null
+    job:false
 }
 
 // global state untuk jobs dan job

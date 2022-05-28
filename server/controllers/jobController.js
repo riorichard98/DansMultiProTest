@@ -5,7 +5,7 @@ class JobController {
         try {
             // kondisi default jika req query page tidak ada maka page akan bernilai 1
             let page = req.query.page ? req.query.page : '1' 
-            const { data } = await axios.get('http://dev3.dansmultipro.co.id/api/recruitment/positions.json',
+            let { data } = await axios.get('http://dev3.dansmultipro.co.id/api/recruitment/positions.json',
                 {
                     // untuk memenuhi kebutuhan search dari ketentuan job yang diterima
                     params: {
@@ -15,6 +15,8 @@ class JobController {
                         page
                     }
                 })
+            // difilter agar tidak ada yang null
+            data = data.filter(e => e !== null)
             res.status(200).json(data)
         } catch (error) {
             next(error)
