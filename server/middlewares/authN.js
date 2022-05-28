@@ -12,7 +12,7 @@ const authN = async (req,res,next)=>{
                 message:"Authentication error"
             })
         }
-        const {token} = req.headers
+        const {token} = req.headers // authentication token dikirimkan dari headers
         const payload = readToken(token) 
         const user = await User.findByPk(payload.id)
         if(!user){
