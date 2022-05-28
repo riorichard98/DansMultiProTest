@@ -21,11 +21,16 @@ export default function JobListPage() {
     }, [])
     // local state untuk search
     const [search, setSearch] = useState({})
-
     // search job handler
     function searchJob(e){
         e.preventDefault()
         dispatch(fetchData(search))
+    }
+
+    function jobPage(e){
+        dispatch(fetchData({
+            page:e.target.value
+        }))
     }
 
     //detail job handler
@@ -34,8 +39,8 @@ export default function JobListPage() {
         navigate(`/jobs/${id}`)
     }
     return (
-        <div >
-            <form onSubmit={searchJob} className="container mt-3 mb-3 d-flex ">
+        <div className="container mt-3 mb-3" >
+            <form onSubmit={searchJob} className="mt-3 mb-3 d-flex ">
                 <input onChange={e => setSearch({ ...search, description: e.target.value })} className="me-3" placeholder="Description" />
                 <input onChange={e => setSearch({ ...search, location: e.target.value })} className="me-3" placeholder="Location" />
                 <div className="me-3">
@@ -72,6 +77,10 @@ export default function JobListPage() {
                     }
                 </tbody>
             </Table>
+            <div className="d-flex bd-highlight">
+                <button value={'1'} onClick={jobPage} className="btn btn-primary me-1">1</button>
+                <button value={'2'} onClick={jobPage} className="btn btn-primary">2</button>
+            </div>
         </div>
     )
 }
