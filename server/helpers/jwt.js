@@ -2,7 +2,7 @@ require('dotenv').config()
 const jwt = require('jsonwebtoken')
 
 const makeToken = (payload)=>{
-    return jwt.sign(payload,process.env.secretKey) //secretKey = `secret`
+    return jwt.sign(payload,process.env.secretKey) //secretKey = `secret` , create .env files format like .env.example
 }
 
 const readToken = (token)=>{
